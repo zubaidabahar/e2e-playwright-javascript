@@ -6,7 +6,7 @@ var person = {
 
 };
 
-url = 'https://demoqa.com/'
-url_text_box = 'https://demoqa.com/text-box'
+const url = 'https://demoqa.com/'
+const url_text_box = 'https://demoqa.com/text-box'
 
 module.exports = {person, url, url_text_box};

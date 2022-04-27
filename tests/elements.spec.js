@@ -1,6 +1,6 @@
+const { test, expect } = require('@playwright/test');
 const {person, url, url_text_box} = require('../helper/variables.js');
 
-const { test, expect } = require('@playwright/test');
 
 test.describe('Elements', () => {
     test('Text Box', async ({page}) => {
@@ -29,9 +29,14 @@ test.describe('Elements', () => {
         await expect(page.locator('text=Email:'+person.email)).toBeVisible;
         await expect(page.locator('text=Current Address:'+person.current_address)).toBeVisible;
         await expect(page.locator('text=Permanent Address:'+person.permanent_address)).toBeVisible;
-      
+    });
 
+    test('Check Box', async ({page}) => {
+        await page.goto(url)
+        await page.locator('svg').first().click();
+        await page.locator('text=Check Box').click();
 
-
+        await page.locator('#tree-node svg').nth(3).click();
+        await expect(page.locator('#tree-node svg')).toBeChecked;
     });
 })
